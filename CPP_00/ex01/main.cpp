@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 13:29:48 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/01/16 13:39:43 by cjoao-me         ###   ########.fr       */
+/*   Created: 2024/01/16 14:31:20 by cjoao-me          #+#    #+#             */
+/*   Updated: 2024/01/19 17:25:26 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "PhoneBook.hpp"
 #include <iostream>
-#include <cstring>
 
-int     main(int ac, char **av)
+int main()
 {
-    int i, j;
-
-    if (ac == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" <<std::endl;
-    else
-    {
-        for (i=1; i < ac; i++)
-            for (j = 0; j < strlen(av[i]); j++)
-                std::cout << (unsigned char)toupper(av[i][j]);
-        std::cout << std::endl;
-    }
+  PhoneBook my_book;
+  std::string cmd;
+  
+  while (1)
+  {
+    std::cout << "Enter a command\n[ADD]/[SEARCH]/[EXIT]: ";
+    std::cin >> cmd;
+    std::cout << std::endl;
+    if (cmd == "EXIT" || std::cin.eof())
+      break;
+    else if (cmd == "ADD")
+      _AddContact();
+    else if (cmd == "SEARCH")
+      _SearchContact();
+  }
+  return (0);
 }

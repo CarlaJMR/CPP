@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 13:29:48 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/01/16 13:39:43 by cjoao-me         ###   ########.fr       */
+/*   Created: 2024/01/16 14:31:20 by cjoao-me          #+#    #+#             */
+/*   Updated: 2024/01/19 18:35:14 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cstring>
+#include "PhoneBook.hpp"
 
-int     main(int ac, char **av)
+
+PhoneBook::PhoneBook(void)
 {
-    int i, j;
+  this->nb_cont = 0;
+  this->last_cont = -1;
+  return;
+}
 
-    if (ac == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" <<std::endl;
-    else
-    {
-        for (i=1; i < ac; i++)
-            for (j = 0; j < strlen(av[i]); j++)
-                std::cout << (unsigned char)toupper(av[i][j]);
-        std::cout << std::endl;
-    }
+PhoneBook::~PhoneBook(void)
+{
+  return;
+}
+
+void  PhoneBook::_SearchContact(void) const
+{
+  return;
 }
