@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:20 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/01/30 16:39:45 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:34:22 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-PhoneBook::PhoneBook(void)
-{
-  this->last_cont = -1;
-  return;
-}
-
-PhoneBook::~PhoneBook(void)
+Contact::Contact(void)
 {
   return;
 }
 
-void  PhoneBook::_SearchContact(void) const
+Contact::~Contact(void)
 {
-  std::cout << "|     Index|First name| Last name|  Nickname|" << std::endl;
   return;
 }
 
-void  PhoneBook::_AddContact()
+Contact    _newcontact(void)
 {
-  return;
+  Contact newc;
+  
+  return (newc);
+}
+
+void  Contact::_printcontactinfo(void) const
+{
+  std::cout << "First name: " << this->_first << std::endl;
+  std::cout << "Last name: " << this->_last << std::endl;
+  std::cout << "Nickname: "<< this->_nick << std::endl;
+  std::cout << "Phone number: "<< this->_phone << std::endl;
+  std::cout << "Darkest secret: "<< this->_secret << std::endl;
 }

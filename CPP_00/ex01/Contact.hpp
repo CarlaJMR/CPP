@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/01/30 16:56:49 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:20:48 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
-#include "Contact.hpp"
+#include <string>
+#include <iostream>
+#include <iomanip>
 
-class PhoneBook
+class Contact
 {
     public:
-        int nb_cont;
-        int last_cont;
-        PhoneBook(void);
-        ~PhoneBook(void);
-        void    _AddContact();
-        void    _SearchContact(void) const;
-      
+        Contact(void);
+        ~Contact(void);
+        
     private:
-        Contact list[8];
+        std::string _first;
+        std::string _last;
+        std::string _nick;
+        std::string _phone;
+        std::string _secret;
+        Contact    _newcontact();
+        void       _printcontactline(void) const;
+        void       _printcontactinfo(void) const;      
 };
 
 #endif
