@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:20 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/01/30 16:54:51 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/01 14:20:07 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
   
   while (1)
   {
-    std::cout << "Enter a command\n[ADD]/[SEARCH]/[EXIT]: ";
+    std::cout << "Enter a command\nOptions [ADD; SEARCH; EXIT]: ";
     std::getline(std::cin, cmd);
     std::cout << std::endl;
     if (cmd == "EXIT" || std::cin.eof())
