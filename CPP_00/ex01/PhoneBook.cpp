@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:20 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/01 16:33:42 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:43:22 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PhoneBook::~PhoneBook(void)
   return;
 }
 
-void  PhoneBook::_SearchContact(void) const
+void  PhoneBook::SearchContact(void) const
 {
   std::string index;
   
@@ -47,7 +47,7 @@ void  PhoneBook::_SearchContact(void) const
   return;
 }
 
-void  PhoneBook::_AddContact()
+void  PhoneBook::AddContact()
 {
   std::string first;
   std::string last;
@@ -62,7 +62,7 @@ void  PhoneBook::_AddContact()
 	nick = _get_field_contact(nick, "Nickname: ");
 	phone = _get_field_contact(phone, "Phone number: ");
 	secret = _get_field_contact(secret, "Darkest secret: ");
-
+  std::cout << std::endl;
 	this->_list[_next_cont].newcontact(first, last, nick, phone, secret);
   _next_cont++;
   if (_nb_cont < 8) 

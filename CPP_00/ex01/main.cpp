@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:20 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/01 14:20:07 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:39:03 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int main()
     if (cmd == "EXIT" || std::cin.eof())
       break;
     else if (cmd == "ADD")
-      my_book._AddContact();
+      my_book.AddContact();
     else if (cmd == "SEARCH")
-      my_book._SearchContact();
+      my_book.SearchContact();
   }
   return (0);
 }

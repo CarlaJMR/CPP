@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/01 16:14:37 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:38:54 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class PhoneBook
        
         PhoneBook(void);
         ~PhoneBook(void);
-        void    _AddContact();
-        void    _SearchContact(void) const;
+        void    AddContact();
+        void    SearchContact(void) const;
       
     private:
         int _nb_cont;

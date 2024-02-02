@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:20 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/01 16:16:52 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:41:10 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void  Contact::printsinglecontact(void) const
   std::cout << "Nickname: "<< this->_nick << std::endl;
   std::cout << "Phone number: "<< this->_phone << std::endl;
   std::cout << "Darkest secret: "<< this->_secret << std::endl;
+  std::cout << std::endl;
 }
