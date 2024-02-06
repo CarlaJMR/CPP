@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/01 16:38:54 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/06 10:51:25 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PhoneBook
         int _nb_cont;
         int _next_cont;
         Contact _list[8];
-        std::string		_get_field_contact(std::string field, std::string prompt);
+        //std::string		_get_field_contact(std::string field, std::string prompt);
 };
 
 #endif
