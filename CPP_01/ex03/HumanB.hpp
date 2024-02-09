@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/06 14:42:47 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:40:30 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp" 
+#ifndef HUMAN_B_HPP
+#define HUMAN_B_HPP
 
+#include "Weapon.hpp"
 
-Zombie* zombieHorde( int N, std::string name );
-
-
-int main( void )
+class HumanB
 {
-    int	N = 3;
-	Zombie	*horde = zombieHorde(N, "GoodFelow");
-	
-	delete [] horde;
-    return (0);
-}
+    public:
+        HumanB (std::string name);
+        ~HumanB(void);
+        void    attack() const;
+        void    setWeapon(Weapon &w);
+        
+    private:
+        std::string _name;
+        Weapon *_wep;   
+};
 
-
- 
-
+#endif

@@ -6,25 +6,21 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/06 14:42:47 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:56:19 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp" 
+#include "Harl.hpp"
 
-
-Zombie* zombieHorde( int N, std::string name );
-
-
-int main( void )
+int main(int ac, char **av)
 {
-    int	N = 3;
-	Zombie	*horde = zombieHorde(N, "GoodFelow");
-	
-	delete [] horde;
-    return (0);
+  if (ac == 2)
+  {
+    Harl annoying;
+    annoying.complain(av[1]);
+  }
+  else
+    std::cout << "Wrong number of arguments!" << std::endl;
+  return 0;
 }
-
-
- 
 

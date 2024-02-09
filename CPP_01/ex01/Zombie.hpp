@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/02 18:11:26 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:02:12 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 class Zombie
 {
     public:
-        Zombie(std::string _name);
+        Zombie( void );
         ~Zombie(void);
         void announce( void );
+        void setName(std::string name);
         
     private:
         std::string _name;   
