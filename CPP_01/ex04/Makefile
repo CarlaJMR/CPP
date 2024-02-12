@@ -2,7 +2,7 @@ NAME = replace
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp handleInput.cpp myReplace.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
