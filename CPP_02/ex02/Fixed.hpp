@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/16 13:58:32 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:50:17 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,33 @@ class Fixed
         Fixed(const float f);
         Fixed(const Fixed & f);
         Fixed & operator=(const Fixed & f);
+        
         int getRawBits( void ) const;
         void setRawBits( int const raw );
+        
         float toFloat( void ) const;
         int toInt( void ) const;
+        
+        Fixed operator+(Fixed const &fix) const;
+        Fixed operator-(Fixed const &fix) const;
+        Fixed operator*(Fixed const &fix) const;
+        Fixed operator/(Fixed const &fix) const;
+        
+        bool operator>(const Fixed &other) const;
+        bool operator<(const Fixed &other) const;
+        bool operator>=(const Fixed &other) const;
+        bool operator<=(const Fixed &other) const;
+        bool operator==(const Fixed &other) const;
+        bool operator!=(const Fixed &other) const;
+
+        static Fixed &min(Fixed &a, Fixed &b);
+        static const Fixed &min(const Fixed &a, const Fixed &b);
+        static Fixed &max(Fixed &a, Fixed &b);
+        static const Fixed &max(const Fixed &a, const Fixed &b);
+
+        Fixed   operator++( );
+        Fixed 	operator++( int );
+
         
     private:
         int _value;

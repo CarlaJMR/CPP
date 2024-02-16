@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/12 15:47:03 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:24:16 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ Fixed::~Fixed(void)
 Fixed::Fixed(const int i) 
 {
     std::cout << "Int constructor called" << std::endl;
+    this->_value = (i <<_fracbits);
     return;
 }
 
 Fixed::Fixed(const float f) 
 {
     std::cout << "Float constructor called" << std::endl;
+    this->_value = roundf(f * ( 1 << _fracbits));
     return;
 }
 
@@ -56,7 +58,7 @@ Fixed & Fixed::operator=(const Fixed & f)
 
 int Fixed::getRawBits( void ) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return (this->_value);
 }
 
@@ -67,10 +69,16 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-    return;
+    return (float)this->_value / (1 << _fracbits);
 }
 
 int Fixed::toInt( void ) const
 {
-    return;
+    return roundf(this->_value >> _fracbits);
+}
+
+std::ostream & operator <<(std::ostream &o, Fixed const &f)
+{
+    o << f.toFloat();
+    return o;
 }

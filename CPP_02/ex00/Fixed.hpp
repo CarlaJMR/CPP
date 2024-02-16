@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/12 15:43:39 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:23:58 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FIXED_HPP
 
 #include <string>
-#include <iostream> 
+#include <iostream>
  
 class Fixed
 {
