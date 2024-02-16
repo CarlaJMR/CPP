@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/12 18:23:09 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:54:45 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ void getContent(std::ifstream &ifs, std::string &content)
 {
   char ch;
 
-  while (!ifs.eof()) 
-  {
-    ifs.get(ch);
+  while (ifs.get(ch)) 
     content.push_back(ch);
-  }
   ifs.close();
 }
 
