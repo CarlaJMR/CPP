@@ -1,6 +1,6 @@
 NAME = brain
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp
 
@@ -9,7 +9,7 @@ OBJ = $(SRC:%.cpp=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(FLAGS) $(OBJ) -o $(NAME)
+	c++ $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/09 16:02:15 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:22:58 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,22 @@ void Harl::complain( std::string level ) const
             std::cout << "\n[ DEBUG ]" << std::endl;
             f = &Harl::debug;
             (this->*f)();
+            // Intentional fall-through
         case 'I':
             std::cout << "\n[ INFO ]" << std::endl;
             f = &Harl::info;
             (this->*f)();
+            // Intentional fall-through
         case 'W':
             std::cout << "\n[ WARNING ]" << std::endl;
             f = &Harl::warning;
             (this->*f)();
+            // Intentional fall-through
         case 'E':
             std::cout << "\n[ ERROR ]" << std::endl;
             f = &Harl::error;
             (this->*f)();
+            break;
         }
     }
     else
