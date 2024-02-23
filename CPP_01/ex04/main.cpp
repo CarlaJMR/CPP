@@ -16,11 +16,12 @@
 
 void myReplace (std::string &content, std::string s1, std::string s2)
 {
-  int i = -1;
-  while ((i = content.find(s1, i + 1)) != std::string::npos)
+  size_t i = 0;
+  while ((i = content.find(s1, i)) != std::string::npos)
   {
     content.erase(i, s1.size());
     content.insert(i, s2);
+    i += s2.size();
   }
 }
 
@@ -48,8 +49,8 @@ int main(int ac, char **av)
       return(1);
     }
     std::string	content;
-    
-    std::ifstream ifs (filename);
+  
+    std::ifstream ifs(filename.c_str(), std::ifstream::in);
     
     if (!ifs)
     {
@@ -58,7 +59,9 @@ int main(int ac, char **av)
     }
     getContent(ifs, content);
     myReplace(content, s1, s2);
-    std::ofstream ofs ((filename.append(".replace")));
+
+    std::ofstream	ofs(filename.append(".replace").c_str(), std::ofstream::trunc);
+
     if (!ofs)
 		  std::cout << "Error creating file: " << filename + ".replace" << std::endl;
 	  else
