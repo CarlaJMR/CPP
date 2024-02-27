@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/27 13:34:11 by cjoao-me         ###   ########.fr       */
+/*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
+/*   Updated: 2024/02/27 13:49:40 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-int main( void )
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	ScavTrap	d ("Dalila");
-	ScavTrap	e ("Elisa");
+    public:
+        FragTrap(void);
+        FragTrap(std::string name);
+        FragTrap(const FragTrap &st);
+        ~FragTrap(void);
 
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.guardGate();
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.guardGate();
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.guardGate();
-	return 0;
-}
+        FragTrap & operator=(const FragTrap &st);
+
+        void    highFivesGuys(void);
+};
+#endif

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/27 13:34:11 by cjoao-me         ###   ########.fr       */
+/*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
+/*   Updated: 2024/02/27 15:29:07 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
+
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main( void )
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-	ScavTrap	d ("Dalila");
-	ScavTrap	e ("Elisa");
+    private:
+        std::string _name;
+    public:
+        DiamondTrap(void);
+        DiamondTrap(std::string name);
+        DiamondTrap(const DiamondTrap &st);
+        ~DiamondTrap(void);
 
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.guardGate();
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.guardGate();
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.attack("Elisa");
-	e.takeDamage(20);
-	d.guardGate();
-	return 0;
-}
+        DiamondTrap & operator=(const DiamondTrap &st);
+
+        void whoAmI();
+        
+#endif
