@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjoao-me <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/23 16:44:12 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:35:44 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,16 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    _hitpoints -= amount;
-    if (_hitpoints > 0)
-        std::cout << "ClapTrap " << _name << " took " << amount << " points of damage and now has " << _hitpoints << " hitpoints of health." << std::endl;
+    if (_hitpoints < 0)
+        std::cout << "ClapTrap " << _name << " can\'t be damaged because  it\'s DEAD!" << std::endl;
     else
-        std::cout << "ClapTrap " << _name << " took " << amount << " points of damage and died!" << std::endl;
+    {
+        _hitpoints -= amount;
+        if (_hitpoints > 0)
+            std::cout << "ClapTrap " << _name << " took " << amount << " points of damage and now has " << _hitpoints << " hitpoints of health." << std::endl;
+        else
+            std::cout << "ClapTrap " << _name << " took " << amount << " points of damage and died!" << std::endl;
+    }
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/27 15:29:07 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:31:16 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : public virtual ScavTrap, public virtual FragTrap
 {
     private:
         std::string _name;
+        
     public:
         DiamondTrap(void);
         DiamondTrap(std::string name);
@@ -29,5 +30,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
         DiamondTrap & operator=(const DiamondTrap &st);
 
         void whoAmI();
+};
         
 #endif
+

@@ -6,25 +6,27 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/27 14:21:26 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:16:45 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 int main( void )
 {
+	std::cout << std::endl;
 	FragTrap	f ("First");
 	FragTrap	s ("Second");
-	ScavTrap	st ("Serena");
+	FragTrap	copy = f;
 	
-
+	std::cout << std::endl;
 	s.attack("First");
-	s.takeDamage(30);
+	f.takeDamage(30);
+	std::cout << std::endl;
 	f.highFivesGuys();
-	st.attack("First");
-	f.takeDamage(20);
+	std::cout << std::endl;
+	copy.beRepaired(30);
+	std::cout << std::endl;
 	
 	return 0;
 }

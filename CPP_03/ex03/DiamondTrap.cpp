@@ -6,28 +6,30 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/27 15:05:41 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:40:10 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::Diamond(void): ScavTrap(), FragTrap()
+
+DiamondTrap::DiamondTrap( void ) 
 {
-    std::cout << "Default DiamondTrap constructor called" << std::endl;
+	std::cout << "Default DiamondTrap constructor called" << std::endl;
     return;
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap(), _name(name)
+DiamondTrap::DiamondTrap(std::string name)
 {
-    FragTrap::_hitpoints = 100;
-    ScavTrap::_energypoints = 50;
-    FragTrap::_damage = 30;
+    _energypoints = 50;
+    _name = name;
+    ClapTrap::_name = name + "_clap_name";
+   
     std::cout << "DiamondTrap constructor called for " << name << std::endl;
     return;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &ct)
+DiamondTrap::DiamondTrap(const DiamondTrap &ct) : ClapTrap(ct), ScavTrap(), FragTrap()
 {
     *this = ct;
     std::cout << "Copy DiamondTrap constructor called for " << this->_name <<std::endl;
@@ -49,19 +51,12 @@ DiamondTrap & DiamondTrap::operator=(const DiamondTrap &ct)
         this->_energypoints = ct._energypoints;
         this->_damage = ct._damage;
     }
-    std::cout << "Copy assignment DiamondTrap operator called for " << this->_name <<std::endl;
+    //std::cout << "Copy assignment DiamondTrap operator called for " << this->_name <<std::endl;
     return(*this);    
-}
-
-void DiamondTrap::attack(const std::string& target)
-{
-    ScavTrap::attack(target);
-    return;
 }
 
 void    DiamondTrap::whoAmI( void )
 {
-    std::cout << "Who am I?" << std::endl;
-    std::cout << "My name is " << this->_name << std::endl;
-    std::cout << "My ClapTrap name is " << this->ClapTrap::_name << std::endl;
+    std::cout << "Who am I?" << " My DiamondTrap name is " << this->_name;
+    std::cout << ". My ClapTrap name is " << this->ClapTrap::_name << std::endl;
 }

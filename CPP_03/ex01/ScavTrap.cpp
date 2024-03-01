@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/02/27 13:06:32 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:54:06 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ ScavTrap::ScavTrap(void)
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    //this->_name = name;
     this->_hitpoints = 100;
     this->_energypoints = 50;
     this->_damage = 20;
@@ -53,7 +52,7 @@ ScavTrap & ScavTrap::operator=(const ScavTrap& st)
         this->_energypoints = st._energypoints;
         this->_damage = st._damage;
     }
-    std::cout << "Copy assignment ScavTrap operator called for " << this->_name <<std::endl;
+    //std::cout << "Copy assignment ScavTrap operator called for " << this->_name <<std::endl;
     return(*this);    
 }
 
