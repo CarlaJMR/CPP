@@ -21,7 +21,7 @@ int main( void )
 	ClapTrap *ptr = &d;
 
 	std::cout << std::endl;
-	ptr->attack("xx");
+	ptr->attack("XPTO");
 	std::cout << std::endl;
 	d.attack("Elisa");
 	e.takeDamage(20);
