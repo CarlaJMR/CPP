@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/22 16:28:30 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:33:22 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 AMateria::AMateria(void)
 {
-    this->type = "AMateria";
     std::cout << "Default AMateria constructor called" << std::endl;
     return;
 }
 
-AMateria::AMateria(const AMateria &other): Animal()
+AMateria::AMateria(std::string const & t)
 {
-     _brain = new Brain;
+    type = t;
+    std::cout << "Parametric AMateria constructor called" << std::endl;
+    return;
+}
+
+AMateria::AMateria(const AMateria &other)
+{
     *this = other;
     std::cout << "Copy AMateria constructor called" <<std::endl;
     return;
@@ -29,7 +34,6 @@ AMateria::AMateria(const AMateria &other): Animal()
 
 AMateria::~AMateria()
 {
-    delete _brain;
     std::cout << "AMateria destructor called" <<std::endl;
     return;
 }
@@ -37,14 +41,16 @@ AMateria::~AMateria()
 AMateria & AMateria::operator=(const AMateria &other)
 {
     if (this != &other)
-    {
         this->type = other.type;
-        *_brain = *(other._brain);
-    }
     return(*this);    
 }
 
-void AMateria::makeSound() const
+std::string const & AMateria::getType() const
 {
-    std::cout << "Miaow, miaow,... , miaow..." <<std::endl;
+    return(this->type);
+}
+
+void AMateria::use(ICharacter& target)
+{
+    (void)target;
 }

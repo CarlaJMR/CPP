@@ -1,10 +1,10 @@
-NAME = animal
+NAME = materia
 
 CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp AMateria.cpp ICharacter.cpp Ice.cpp Cure.cpp
+SRC = AMateria.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp Character.cpp 
 
 OBJ = $(SRC:%.cpp=%.o)
 

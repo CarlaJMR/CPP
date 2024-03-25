@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/04 19:05:24 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:16:50 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ Cat::Cat(void)
 
 Cat::Cat(const Cat &other): Animal()
 {
-     //delete brain antigo
-     _brain = new Brain;
+    _brain = new Brain;
     *this = other;
     std::cout << "Copy Cat constructor called" <<std::endl;
     return;
