@@ -26,5 +26,8 @@ class Brain
         Brain(const Brain &ct);
         virtual ~Brain(void);
         Brain & operator=(const Brain &ct);
+
+        std::string getIdea(unsigned int i) const;
+        void setIdea(unsigned int i, std::string id);
 };
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   ShallowCat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef SHALLOW_CAT_HPP
+#define SHALLOW_CAT_HPP
 
 #include <string>
 #include <iostream>
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat: public Animal
+class ShallowCat: public Animal
 {
     private:
         Brain *_brain;
 
     public:
-        Cat(void);
-        Cat(const Cat &ct);
-        ~Cat(void);
+        ShallowCat(void);
+        ShallowCat(const ShallowCat &ct);
+        ~ShallowCat(void);
 
-        Cat & operator=(const Cat &ct);
+        ShallowCat & operator=(const ShallowCat &ct);
 
         void makeSound() const;
         Brain *getBrain(void) const;

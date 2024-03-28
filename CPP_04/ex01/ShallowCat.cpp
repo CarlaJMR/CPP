@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   ShallowCat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/25 11:16:50 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:05:24 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "ShallowCat.hpp"
 
-Cat::Cat(void)
+ShallowCat::ShallowCat(void)
 {
-    this->type = "Cat";
-    _brain = new Brain;
-    std::cout << "Default Cat constructor called" << std::endl;
+    this->type = "ShallowCat";
+    for (int i = 0; i < 100; i++)
+        (*_brain).getIdea(i) = "";
+    std::cout << "Default ShallowCat constructor called" << std::endl;
     return;
 }
 
-Cat::Cat(const Cat &other): Animal()
+ShallowCat::ShallowCat(const ShallowCat &other): Animal()
 {
-    _brain = new Brain;
+    _brain =other.getBrain();
     *this = other;
-    std::cout << "Copy Cat constructor called" <<std::endl;
+    std::cout << "Copy ShallowCat constructor called" <<std::endl;
     return;
 }
 
-Cat::~Cat()
+ShallowCat::~ShallowCat()
 {
-    delete _brain;
-    std::cout << "Cat destructor called" <<std::endl;
+    std::cout << "ShallowCat destructor called" <<std::endl;
     return;
 }
 
-Cat & Cat::operator=(const Cat &other)
+ShallowCat & ShallowCat::operator=(const ShallowCat &other)
 {
     if (this != &other)
     {
         this->type = other.type;
-        *_brain = *(other._brain);
+        _brain =other.getBrain();
     }
-    std::cout << "Cat assignment operator called" <<std::endl;
+    std::cout << "ShallowCat assignment operator called" <<std::endl;
     return(*this);    
 }
 
-void Cat::makeSound() const
+void ShallowCat::makeSound() const
 {
     std::cout << "Miaow, miaow,... , miaow..." <<std::endl;
 }
 
-Brain* Cat::getBrain(void) const
+Brain* ShallowCat::getBrain(void) const
 {
 	return (_brain);
 }

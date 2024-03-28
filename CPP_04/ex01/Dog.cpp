@@ -42,11 +42,16 @@ Dog & Dog::operator=(const Dog &other)
         this->type = other.type;
         *_brain = *(other._brain);
     }
-    std::cout << "Dog assigment operator called" <<std::endl;
+    std::cout << "Dog assignment operator called" <<std::endl;
     return(*this);    
 }
 
 void Dog::makeSound() const
 {
     std::cout << "Woof, woof,... , woof..." <<std::endl;
+}
+
+Brain* Dog::getBrain(void) const
+{
+	return (_brain);
 }
