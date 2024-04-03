@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carla <carla@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/01 11:52:34 by carla            ###   ########.fr       */
+/*   Updated: 2024/04/03 14:58:09 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,90 +36,64 @@ int main(void)
     delete src;
     }
     std::cout <<std::endl;
-        {
-		MateriaSource* src = new MateriaSource();
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
-		Character* Rambo = new Character("Rambo");
-		Character* Batman = new Character("Batman");
-		Rambo->use(0, *Batman);
-		AMateria* tmp;
-		tmp = src->createMateria("ice");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("cure");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("ice");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("cure");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("ice");
-		Rambo->equip(tmp);
-		delete tmp;
-		Rambo->use(0, *Batman);
-		// for (int i = 0; i < 110; i++)
-		// {
-		// 	Rambo->unequip(0);
-		// 	tmp = src->createMateria("ice");
-		// 	Rambo->equip(tmp);
-		// }
-		Rambo->unequip(0);
-		Rambo->unequip(1);
-		Rambo->unequip(1);
-		//show_dropped();
-		Rambo->use(0, *Batman);
-		std::cout << "\nDeep copy tests" << std::endl;
-		MateriaSource* copy = new MateriaSource();
-		*copy = *src;
-		copy->learnMateria(new Cure());
-		copy->learnMateria(new Ice());
-        copy->learnMateria(new Cure());
-		src->learnMateria(new Cure());
-		Character* RamClone = new Character("Random");
-		*RamClone = *Rambo;
-		tmp = copy->createMateria("cure");
-		RamClone->equip(tmp);
-		tmp = copy->createMateria("ice");
-		RamClone->equip(tmp);
-		RamClone->use(0, *Rambo);
-		RamClone->use(1, *Rambo);
-		RamClone->use(2, *Rambo);
-		RamClone->use(3, *Rambo);
-		std::cout << "\nOriginal Rambo should be unchanged" << std::endl;
-		Rambo->use(0, *RamClone);
-		Rambo->use(3, *RamClone);
-		delete Rambo;
-		delete Batman;
-		delete src;
-		delete RamClone;
-		delete copy;
-		//clearDropped();
-	}
-   /* std::cout << std::endl;
-    {
-    IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-    ICharacter* me = new Character("me");
-    AMateria* tmp;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-    me->equip(tmp);
-    me->equip(tmp);
-    me->equip(tmp);
-    ICharacter* bob = new Character("bob");
-    me->use(0, *bob);
-    me->use(1, *bob);
-    me->unequip(0);
-    me->unequip(0);
-    me->unequip(6);
-    delete bob;
-    delete me;
-    delete src;
-    }*/
+	{
+	MateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	Character* Tiago = new Character("Tiago");
+	Character* Sofia = new Character("Sofia");
+	Tiago->use(0, *Sofia);
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	Tiago->equip(tmp);
+	tmp = src->createMateria("cure");
+	Tiago->equip(tmp);
+	tmp = src->createMateria("ice");
+	Tiago->equip(tmp);
+	tmp = src->createMateria("cure");
+	Tiago->equip(tmp);
+	tmp = src->createMateria("ice");
+	Tiago->equip(tmp);
+	delete tmp;
+	Tiago->use(0, *Sofia);
+	// for (int i = 0; i < 110; i++)
+	// {
+	// 	Tiago->unequip(0);
+	// 	tmp = src->createMateria("ice");
+	// 	Tiago->equip(tmp);
+	// }
+	Tiago->unequip(0);
+	Tiago->unequip(1);
+	Tiago->unequip(1);
+	//show_dropped();
+	Tiago->use(0, *Sofia);
+	std::cout << "\nDeep copy tests" << std::endl;
+	MateriaSource* copy = new MateriaSource();
+	*copy = *src;
+	copy->learnMateria(new Cure());
+	copy->learnMateria(new Ice());
+	copy->learnMateria(new Cure());
+	src->learnMateria(new Cure());
+	Character* TiagoCopy = new Character("Random");
+	*TiagoCopy = *Tiago;
+	tmp = copy->createMateria("cure");
+	TiagoCopy->equip(tmp);
+	tmp = copy->createMateria("ice");
+	TiagoCopy->equip(tmp);
+	TiagoCopy->use(0, *Tiago);
+	TiagoCopy->use(1, *Tiago);
+	TiagoCopy->use(2, *Tiago);
+	TiagoCopy->use(3, *Tiago);
+	std::cout << "\nOriginal Tiago should be unchanged" << std::endl;
+	Tiago->use(0, *TiagoCopy);
+	Tiago->use(3, *TiagoCopy);
+	delete Tiago;
+	delete Sofia;
+	delete src;
+	delete TiagoCopy;
+	delete copy;
 
-    /*IMateriaSource* src = new MateriaSource();
+	/*IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
     src->learnMateria(new Ice());
@@ -154,66 +128,5 @@ int main(void)
     delete me;
     delete Mar;
     delete src;*/
-    
-/*std::cout << "\nMy tests" << std::endl;
-	{
-		MateriaSource* src = new MateriaSource();
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
-		Character* Rambo = new Character("Rambo");
-		Character* Batman = new Character("Batman");
-		Rambo->use(0, *Batman);
-		AMateria* tmp;
-		tmp = src->createMateria("ice");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("cure");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("ice");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("cure");
-		Rambo->equip(tmp);
-		tmp = src->createMateria("ice");
-		Rambo->equip(tmp);
-		delete tmp;
-		Rambo->use(0, *Batman);
-		// for (int i = 0; i < 110; i++)
-		// {
-		// 	Rambo->unequip(0);
-		// 	tmp = src->createMateria("ice");
-		// 	Rambo->equip(tmp);
-		// }
-		Rambo->unequip(0);
-		Rambo->unequip(1);
-		Rambo->unequip(1);
-		show_dropped();
-		Rambo->use(0, *Batman);
-		std::cout << "\nDeep copy tests" << std::endl;
-		MateriaSource* copy = new MateriaSource();
-		*copy = *src;
-		copy->learnMateria(new Cure());
-		copy->learnMateria(new Cure());
-		copy->learnMateria(new Ice());
-		src->learnMateria(new Cure());
-		Character* RamClone = new Character("Random");
-		*RamClone = *Rambo;
-		tmp = copy->createMateria("cure");
-		RamClone->equip(tmp);
-		tmp = copy->createMateria("ice");
-		RamClone->equip(tmp);
-		RamClone->use(0, *Rambo);
-		RamClone->use(1, *Rambo);
-		RamClone->use(2, *Rambo);
-		RamClone->use(3, *Rambo);
-		std::cout << "\nOriginal Rambo should be unchanged" << std::endl;
-		Rambo->use(0, *RamClone);
-		Rambo->use(3, *RamClone);
-		delete Rambo;
-		delete Batman;
-		delete src;
-		delete RamClone;
-		delete copy;
-		clearDropped();
-	}*/
-    
-    return 0;
+	//clearDropped();
 }
