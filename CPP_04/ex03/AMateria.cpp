@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carla <carla@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/25 11:33:22 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:11:59 by carla            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ AMateria::AMateria(const AMateria &other)
 
 AMateria::~AMateria()
 {
-    std::cout << "AMateria destructor called" <<std::endl;
+    std::cout << getType() << " :AMateria destroyed" <<std::endl;
     return;
 }
 
 AMateria & AMateria::operator=(const AMateria &other)
 {
     if (this != &other)
-        this->type = other.type;
+        this->type = other.getType();
     return(*this);    
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carla <carla@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/25 16:47:02 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:04:42 by carla            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,35 @@ Character::Character(const Character &other)
 Character::~Character()
 {
     for (int i = 0; i < 4; i++)
+    {
 	if (_inventory[i] != NULL)
-		delete _inventory[i];
-    std::cout << "Character destructor called" <<std::endl;
+        {
+             delete (_inventory[i]);
+             _inventory[i] = NULL;   
+        }	
+    }
+    std::cout << getName() << " :character destroyed." << std::endl;
     return;
 }
 
 Character & Character::operator=(const Character &other)
 {
-    if (this != &other)
-    {
-        for (int i = 0; i < 4; i++) 
-        {
-                if (_inventory[i] != NULL)
-                        delete _inventory[i];
-                _inventory[i] = other._inventory[i];
-        }
-    }
-    return(*this);    
+    	if (this != &other)
+	{
+		 std::cout << getName() << " has been cloned to " << other.getName() << std::endl;
+                _name = other.getName();
+		for (int i = 0; i < 4; i++)
+		{
+			if (_inventory[i] != NULL)
+			{
+				delete _inventory[i];
+				_inventory[i] = NULL;
+                                if (other._inventory[i] != NULL)
+				        _inventory[i] = other._inventory[i]->clone();
+			}
+		}
+	}
+	return (*this);
 }
 
 std::string const & Character::getName() const
@@ -77,8 +88,7 @@ void Character::equip(AMateria* m)
                         return ;
                 }
         }
-        std::cout << "Inventory full or non existent materia!" << std::endl;
-        delete m;   
+        std::cout << "Inventory full or non existent materia!" << std::endl; 
 }
 
 void Character::unequip(int idx)
