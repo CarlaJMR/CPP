@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/04 19:18:52 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/03 18:07:47 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #include <string>
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog: public Animal
+class Dog: public AAnimal
 {
     private:
         Brain *_brain;
@@ -31,5 +31,6 @@ class Dog: public Animal
         Dog & operator=(const Dog &ct);
 
         void makeSound() const;
+        Brain *getBrain(void) const;
 };
 #endif

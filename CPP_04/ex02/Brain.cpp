@@ -41,3 +41,17 @@ Brain & Brain::operator=(const Brain &other)
     return(*this);    
 }
 
+std::string Brain::getIdea(unsigned int i) const
+{
+    if (i < 100)
+        return(ideas[i]);
+    else
+        return("");
+}
+
+void Brain::setIdea(unsigned int i, std::string id)
+{
+    if (i < 100)
+        ideas[i] = id;
+    return;
+}

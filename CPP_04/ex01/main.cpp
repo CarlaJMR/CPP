@@ -6,13 +6,12 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/22 16:52:32 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/03 18:00:53 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "ShallowCat.hpp"
 
 int main( void )
 {
@@ -41,22 +40,24 @@ int main( void )
         Cat a;
         original.getBrain()->setIdea(0, "brincadeira");
         a = original;
-        a.getBrain()->setIdea(0, "vou passear");
-        Cat deepcp(original);
-        deepcp.getBrain()->setIdea(0, "tenho fome");
+        std::cout << "**** Cat: Ideas immediately after copy assignement ****" << std::endl;
         std::cout << "Original idea: " << original.getBrain()->getIdea(0) << std::endl;
+        std::cout << "Copy idea: " << a.getBrain()->getIdea(0) << std::endl;
+        a.getBrain()->setIdea(0, "vou passear");
+        std::cout << "**** Cat: after copy changes idea ****" << std::endl;
+        std::cout << "Original idea: " << original.getBrain()->getIdea(0) << std::endl;
+        std::cout << "Copy idea: " << a.getBrain()->getIdea(0) << std::endl;
+        Dog first;
+        first.getBrain()->setIdea(0, "tenho fome");
+        Dog deepcp(first);
+        std::cout << "**** Dog: Ideas immediately after copy constructor ****" << std::endl;
+        std::cout << "Original idea: " << first.getBrain()->getIdea(0) << std::endl;
         std::cout << "Copy idea: " << deepcp.getBrain()->getIdea(0) << std::endl;
-        std::cout << "Copy assignment idea: " << a.getBrain()->getIdea(0) << std::endl;
+        first.getBrain()->setIdea(0, "vou roer os chinelos");
+        std::cout << "**** Dog: Ideas after original changes idea ****" << std::endl;
+        std::cout << "Original idea: " << first.getBrain()->getIdea(0) << std::endl;
+        std::cout << "Copy idea: " << deepcp.getBrain()->getIdea(0) << std::endl;
     }
 
-    std::cout << std::endl << "Shallow copy test" <<std::endl;
-    {
-        ShallowCat original;
-        original.getBrain()->setIdea(0, "brincadeira");
-        ShallowCat shacp(original);
-        shacp.getBrain()->setIdea(0, "tenho fome");
-        std::cout << "Original idea: " << original.getBrain()->getIdea(0) << std::endl;
-        std::cout << "Copy idea: " << shacp.getBrain()->getIdea(0) << std::endl;
-    }
     return 0;
 }
