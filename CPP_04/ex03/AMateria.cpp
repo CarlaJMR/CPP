@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carla <carla@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/01 11:11:59 by carla            ###   ########.fr       */
+/*   Updated: 2024/04/05 15:45:10 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ AMateria::AMateria(void)
 AMateria::AMateria(std::string const & t)
 {
     type = t;
-    std::cout << "Parametric AMateria constructor called" << std::endl;
+    //std::cout << "Parametric AMateria constructor called" << std::endl;
     return;
 }
 
 AMateria::AMateria(const AMateria &other)
 {
     *this = other;
-    std::cout << "Copy AMateria constructor called" <<std::endl;
+    //std::cout << "Copy AMateria constructor called" <<std::endl;
     return;
 }
 
 AMateria::~AMateria()
 {
-    std::cout << getType() << " :AMateria destroyed" <<std::endl;
+    //std::cout << getType() << " :AMateria destroyed" <<std::endl;
     return;
 }
 

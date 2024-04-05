@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/25 16:50:56 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:29:14 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
+
+extern AMateria *floorMateria[50];
 
 class MateriaSource : public IMateriaSource
 {
@@ -28,6 +30,12 @@ class MateriaSource : public IMateriaSource
         
         void learnMateria(AMateria*);
         AMateria* createMateria(std::string const & type);
+
+       
 };
+
+void dropMateria(AMateria *m);
+void cleanFloor(void);
+        
 #endif
 

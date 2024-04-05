@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/25 16:06:30 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:32:10 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CHARACTER_HPP
 
 #include "ICharacter.hpp"
-#include "AMateria.hpp"
+#include "MateriaSource.hpp"
 
 
 class Character: public ICharacter
