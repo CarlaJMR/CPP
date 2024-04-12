@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 14:13:00 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/12 18:00:33 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ std::ostream & operator <<(std::ostream &out, Bureaucrat const &buc)
     return (out);
 }
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signForm(AForm &f)
 {
     if (f.getSignStatus())
     {
@@ -111,4 +111,19 @@ void Bureaucrat::signForm(Form &f)
             f.beSigned(*this);
         }
     }
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " did not execute ";
+        std::cout << form.getName() << ". " << e.what() << std::endl;
+		return;
+	}
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
