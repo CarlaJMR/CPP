@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/08 15:40:23 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:03:00 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,11 @@ int Form::getExecGrade( void ) const
     return (_exec_grade);
 }
 
-bool Form::beSigned(Bureaucrat &b)
+void Form::beSigned(Bureaucrat &b)
 {
     if (b.getGrade() > _sign_grade)
-    {
-        //throw Form::GradeTooLowException();
-        return (false);
-    }
+        throw Form::GradeTooLowException();
     _is_signed = true;
-    return (true);
 }
 
 const char	*Form::GradeTooLowException::what() const throw()
