@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/18 16:00:01 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:16:29 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int	main(void)
 {
-	try
+	{
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	}
+	/*try
 	{
 		Bureaucrat				m("Maria", 20);
 		Bureaucrat				a("Ana", 140);
@@ -45,7 +51,7 @@ int	main(void)
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
-	}
+	}*/
 
 	return (0);
 }
