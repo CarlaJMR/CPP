@@ -6,52 +6,103 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/18 16:16:29 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/19 15:51:00 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "Intern.hpp"
 
 int	main(void)
-{
+{	
+    Intern someRandomIntern;
+	
 	{
-		Intern someRandomIntern;
-		AForm* rrf;
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	}
-	/*try
-	{
-		Bureaucrat				m("Maria", 20);
-		Bureaucrat				a("Ana", 140);
-		Bureaucrat				c("Chefe", 1);
-		ShrubberyCreationForm	g("Garden");	
-		PresidentialPardonForm	dr("Doctor Who");
-		RobotomyRequestForm		b("Someone");
+		AForm *rrf;
+		rrf = NULL;
 		
-		std::cout << g << std::endl << std::endl;
-		g.beSigned(m);
-		m.executeForm(g);
-		a.executeForm(g);
-
-		std::cout << std::endl << b << std::endl << std::endl;
-		b.beSigned(c);
-		a.executeForm(b);
-		m.executeForm(b);
-
-		std::cout << std::endl << dr << std::endl << std::endl;
-		dr.beSigned(m);
-		m.executeForm(dr);
-		c.executeForm(dr);
-		
+		try 
+		{
+			Bureaucrat bob("bob", 1);
+			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+			if (rrf)
+			{
+				bob.signForm(*rrf); 
+				rrf->execute(bob);
+			} 
+		}
+		catch (const std::exception &e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+		if (rrf)
+			delete rrf;
 	}
-	catch (std::exception &e)
+	
 	{
-		std::cerr << e.what() << std::endl;
-	}*/
-
+		AForm *rrf;
+		rrf = NULL;
+		
+		try 
+		{
+			Bureaucrat bob("bob", 150);
+			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+			if (rrf)
+			{
+				bob.signForm(*rrf); 
+				rrf->execute(bob);
+			} 
+		}
+		catch (const std::exception &e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+		if (rrf)
+			delete rrf;
+	}
+	std::cout << std::endl;
+	{
+		AForm *rrf;
+		rrf = NULL;
+		
+		try 
+		{
+			Bureaucrat bob("bob", 1);
+			rrf = someRandomIntern.makeForm("presidential pardon", "Cupertino");
+			if (rrf)
+			{
+				rrf->beSigned(bob); 
+				rrf->execute(bob);
+			} 
+		}
+		catch (const std::exception &e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+		if (rrf)
+			delete rrf;
+	}
+	std::cout << std::endl;
+	{
+		AForm *rrf;
+		rrf = NULL;
+	
+		try 
+		{
+			Bureaucrat bob("bob", 1);
+			rrf = someRandomIntern.makeForm("another form", "B");
+			if (rrf)
+			{
+				bob.signForm(*rrf); 
+				rrf->execute(bob);
+			} 
+		}
+		catch (const std::exception &e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+		if (rrf)
+			delete rrf;
+	}
 	return (0);
 }

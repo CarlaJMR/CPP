@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:44:50 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 17:50:28 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:42:35 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 class Bureaucrat;
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm("Presidential pardon", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(): AForm("presidential pardon", 25, 5)
 {
     //std::cout << "PresidentialPardonForm: Default constructor called" << std::endl;
     return;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target): AForm("Presidential pardon", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string target): AForm("presidential pardon", 25, 5), _target(target)
 {
     //std::cout << "PresidentialPardonForm: Parametric constructor called" << std::endl;
 }

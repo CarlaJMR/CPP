@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:44:50 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 17:32:32 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:42:57 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 class Bureaucrat;
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Shrubbery creation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("shrubbery creation", 145, 137)
 {
     //std::cout << "ShrubberyCreationForm: Default constructor called" << std::endl;
     return;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): AForm("Shrubbery creation", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): AForm("shrubbery creation", 145, 137), _target(target)
 {
     //std::cout << "ShrubberyCreationForm: Parametric constructor called" << std::endl;
 }
