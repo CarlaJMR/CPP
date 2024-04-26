@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:44:50 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/19 14:42:35 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:34:23 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
 {
     //std::cout << "PresidentialPardonForm: Copy assignment operator called" << std::endl;
     if (this != &other){
-        this->_target = other._target;}
+        AForm::operator=(other);
+        this->_target = other._target;
+        }
 	return (*this);
 }
 

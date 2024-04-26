@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carla <carla@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/03/29 18:20:25 by carla            ###   ########.fr       */
+/*   Updated: 2024/04/26 16:49:49 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main()
 {
-    {
+	{
 		try{
 			Bureaucrat Min("bb", 151);
 			std::cout << Min << std::endl;
@@ -38,6 +38,8 @@ int	main()
 	{
 		try{
 			Bureaucrat Ok("Inbounds", 104);
+			std::cout << Ok << std::endl;
+			Ok.incrementGrade();
 			std::cout << Ok << std::endl;
 		}
 		catch (std::exception &e){

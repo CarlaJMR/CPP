@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 14:13:00 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:47:36 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Bureaucrat::~Bureaucrat(void)
     return;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat & other)
+Bureaucrat::Bureaucrat(const Bureaucrat & other): _name(other._name)
 {
     //std::cout << "Bureaucrat: Copy constructor called" << std::endl;
     *this = other;

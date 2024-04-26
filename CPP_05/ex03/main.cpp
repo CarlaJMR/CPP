@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/19 15:51:00 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:33:00 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {	
-    Intern someRandomIntern;
+	Intern someRandomIntern;
 	
 	{
 		AForm *rrf;

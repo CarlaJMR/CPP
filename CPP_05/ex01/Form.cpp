@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 14:03:00 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:57:40 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ Form::~Form(void)
     return;
 }
 
-Form::Form(const Form & other): _name(other._name), _is_signed(false), _sign_grade(other._sign_grade), _exec_grade(other._exec_grade)
+Form::Form(const Form & other): _name(other._name) , _sign_grade(other._sign_grade), _exec_grade(other._exec_grade)
 {
     //std::cout << "Form: Copy constructor called" << std::endl;
+    *this = other;
     return;
 }
 

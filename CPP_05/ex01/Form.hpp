@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 13:46:41 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:23:51 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Form
         Form(void);
         Form(const std::string name, const int sgrade, const int exgrade);
         Form(const Form &other);
-        virtual ~Form(void);
+        ~Form(void);
 
         Form & operator=(const Form &other);
 

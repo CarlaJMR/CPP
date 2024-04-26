@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 16:44:37 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:05:19 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ AForm::~AForm(void)
     return;
 }
 
-AForm::AForm(const AForm & other): _name(other._name), _is_signed(false), _sign_grade(other._sign_grade), _exec_grade(other._exec_grade)
+AForm::AForm(const AForm & other): _name(other._name) , _sign_grade(other._sign_grade), _exec_grade(other._exec_grade)
 {
-    //std::cout << "AForm: Copy constructor called" << std::endl;
+    //std::cout << "Form: Copy constructor called" << std::endl;
+    *this = other;
     return;
 }
 
@@ -101,11 +102,6 @@ std::ostream & operator <<(std::ostream &out, AForm const &f)
         out << ", not signed, ";
     out << "Grade to sign: " << f.getSignGrade() << ", Grade to execute: " << f.getExecGrade(); 
     return (out);
-}
-
-void AForm::execute(Bureaucrat const & executor) const
-{
-	(void) executor;
 }
 
 void AForm::execPermission(const Bureaucrat& b) const

@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 17:21:12 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:24:35 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Bureaucrat
         Bureaucrat(void);
         Bureaucrat(const std::string name, int grade);
         Bureaucrat(const Bureaucrat &other);
-        virtual ~Bureaucrat(void);
+        ~Bureaucrat(void);
 
         Bureaucrat & operator=(const Bureaucrat &other);
 
