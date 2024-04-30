@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/12 16:30:54 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:38:30 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,14 @@ class AForm
         const std::string _name;
         bool    _is_signed;
         const int _sign_grade;
-        const int _exec_grade; 
+        const int _exec_grade;
+        AForm & operator=(const AForm &other); 
 
     public:
         AForm(void);
         AForm(const std::string name, const int sgrade, const int exgrade);
         AForm(const AForm &other);
         virtual ~AForm(void);
-
-        AForm & operator=(const AForm &other);
 
         const std::string getName() const;
         bool getSignStatus() const;

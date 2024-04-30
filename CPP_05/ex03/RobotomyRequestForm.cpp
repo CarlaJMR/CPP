@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:44:50 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/26 17:23:39 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:42:19 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 {
     //std::cout << "RobotomyRequestForm: Copy assignment operator called" << std::endl;
     if (this != &other){
-        AForm::operator=(other);
         this->_target = other._target;}
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/26 17:33:00 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:50:42 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(void)
 		try 
 		{
 			Bureaucrat bob("bob", 150);
-			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+			rrf = someRandomIntern.makeForm("shrubbery creation", "home");
 			if (rrf)
 			{
 				bob.signForm(*rrf); 

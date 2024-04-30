@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:44:50 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/26 17:23:52 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:43:28 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
 {
     //std::cout << "ShrubberyCreationForm: Copy assignment operator called" << std::endl;
     if (this != &other){
-        AForm::operator=(other);
         this->_target = other._target;}
 	return (*this);
 }

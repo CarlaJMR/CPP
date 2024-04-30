@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/26 16:23:51 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:36:21 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,14 @@ class Form
         const std::string _name;
         bool    _is_signed;
         const int _sign_grade;
-        const int _exec_grade; 
+        const int _exec_grade;
+        Form & operator=(const Form &other);
 
     public:
         Form(void);
         Form(const std::string name, const int sgrade, const int exgrade);
         Form(const Form &other);
         ~Form(void);
-
-        Form & operator=(const Form &other);
 
         const std::string getName() const;
         bool getSignStatus() const;

@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/26 16:24:19 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:35:33 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ class Bureaucrat
     private:
         const std::string _name;
         int _grade;
+        Bureaucrat & operator=(const Bureaucrat &other);
 
     public:
         Bureaucrat(void);
         Bureaucrat(const std::string name, int grade);
         Bureaucrat(const Bureaucrat &other);
         ~Bureaucrat(void);
-
-        Bureaucrat & operator=(const Bureaucrat &other);
 
         const std::string getName() const;
         int getGrade() const;
