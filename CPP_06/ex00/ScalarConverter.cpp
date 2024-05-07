@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/19 18:00:55 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:11:30 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,15 @@ void CharInput(std::string s)
 	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(s[0]) << std::endl;
 }
 
-void IntInput()
+void IntInput(int i)
 {
-    
+    if (isprint(i))
+        std::cout << "Char: '" << static_cast<char>(i)  << "'" << std::endl;
+    else{
+        std::cout << "Char: '" << "non displayable"  << "'" << std::endl;}
+	std::cout << "Int: " << i << std::endl;
+	std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
 }
 
 void FloatInput()
@@ -81,9 +87,32 @@ void ScalarConverter::convert(std::string literal)
         CharInput(literal);
         return;
     }
-    if ( literal== "nan" || literal == "nanf" || literal == "+inf" || literal == "+inff" || literal == "-inf" || literal == "-inff") 
+    if ( literal == "nan" || literal == "nanf" || literal == "+inf" || literal == "+inff" || literal == "-inf" || literal == "-inff") 
     {
         PseudoInput(literal);
+        return;
+    }
+    bool digit = true;
+    int dot = 0;
+    int f = 0;
+    unsigned int i = 0;
+    if (*literal.begin() == '+' || *literal.begin() == '-')
+        i++;
+    for (unsigned j = i; j < literal.size(); j++)
+    {
+        if (!isdigit(literal[j]) && literal[j] != '.' && literal[j] != 'f')
+        {
+            digit = false;
+            break;
+        }
+        else if (literal[j] == '.')
+            dot++;
+        else if (literal[j] == 'f')
+            f++;  
+    }
+    if (digit && !dot && !f)
+    {
+        IntInput(atoi(literal.c_str()));
         return;
     }
     ImpossibleInput();
