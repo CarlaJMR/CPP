@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/07 15:11:30 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:20:03 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,40 +51,52 @@ void PseudoInput(std::string p)
     } 
 }
 
-void CharInput(std::string s)
+void printResult(char c)
 {
-    std::cout << "Char: '" << s[0] << "'" << std::endl;
-	std::cout << "Int: " << static_cast<int>(s[0]) << std::endl;
-	std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(s[0]) << 'f' << std::endl;
-	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(s[0]) << std::endl;
+    std::cout << "Char: '" << c << "'" << std::endl;
+	std::cout << "Int: " << static_cast<int>(c) << std::endl;
+	std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << 'f' << std::endl;
+	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
-void IntInput(int i)
+void printResult(int i)
 {
     if (isprint(i))
         std::cout << "Char: '" << static_cast<char>(i)  << "'" << std::endl;
     else{
-        std::cout << "Char: '" << "non displayable"  << "'" << std::endl;}
+        std::cout << "Char: " << "Non displayable"  << std::endl;}
 	std::cout << "Int: " << i << std::endl;
 	std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
 	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
 }
 
-void FloatInput()
+void printResult(float f)
 {
-    
+    if (isprint(static_cast<char>(f)))
+        std::cout << "Char: '" << static_cast<char>(f)  << "'" << std::endl;
+    else{
+        std::cout << "Char: " << "Non displayable"  << std::endl;}
+	std::cout << "Int: " << static_cast<int>(f) << std::endl;
+	std::cout << "Float: " << std::fixed << std::setprecision(1)<< f << "f" << std::endl;
+	std::cout << "Double: " << std::fixed << std::setprecision(1)<< static_cast<double>(f) << std::endl;
 }
 
-void DoubleInput()
+void printResult(double d)
 {
-    
+    if (isprint(static_cast<char>(d)))
+        std::cout << "Char: '" << static_cast<char>(d)  << "'" << std::endl;
+    else{
+        std::cout << "Char: " << "Non displayable"  << std::endl;}
+	std::cout << "Int: " << static_cast<int>(d) << std::endl;
+	std::cout << "Float: " << std::fixed << std::setprecision(1)<< static_cast<float>(d)  << "f" << std::endl;
+	std::cout << "Double: " << std::fixed << std::setprecision(1)<< d << std::endl;
 }
 
 void ScalarConverter::convert(std::string literal)
 {
-    if (literal.length() == 1 && !isdigit(literal[0])) 
+    if (literal.length() == 1 && !isdigit(*literal.begin())) 
     {
-        CharInput(literal);
+        printResult(*literal.begin());
         return;
     }
     if ( literal == "nan" || literal == "nanf" || literal == "+inf" || literal == "+inff" || literal == "-inf" || literal == "-inff") 
@@ -112,7 +124,17 @@ void ScalarConverter::convert(std::string literal)
     }
     if (digit && !dot && !f)
     {
-        IntInput(atoi(literal.c_str()));
+        printResult(atoi(literal.c_str()));
+        return;
+    }
+    if (digit && dot == 1 && f == 1 && *(literal.end() - 1) == 'f' )
+    {
+        printResult(static_cast<float>(std::atof(literal.c_str())));
+        return;
+    }
+    if (digit && dot == 1 && !f)
+    {
+        printResult(std::atof(literal.c_str()));
         return;
     }
     ImpossibleInput();
