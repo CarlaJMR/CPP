@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/08 18:20:03 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:18:09 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter & other)
 
 void ImpossibleInput(void)
 {
-    std::cout << "char: impossible" << std::endl;
-    std::cout << "int: impossible" << std::endl;
-    std::cout << "float: impossible" << std::endl;
-    std::cout << "double: impossible" << std::endl;
+    std::cout << "Char: impossible" << std::endl;
+    std::cout << "Int: impossible" << std::endl;
+    std::cout << "Float: impossible" << std::endl;
+    std::cout << "Double: impossible" << std::endl;
 }
 
 void PseudoInput(std::string p)
 {
-    std::cout << "char: impossible" << std::endl;
-    std::cout << "int: impossible" << std::endl;
+    std::cout << "Char: impossible" << std::endl;
+    std::cout << "Int: impossible" << std::endl;
     if (p == "+inf" || p == "-inf" || p == "nan")
     {
-        std::cout << "float: " << p << "f" << std::endl;
-        std::cout << "double: " << p << std::endl;
+        std::cout << "Float: " << p << "f" << std::endl;
+        std::cout << "Double: " << p << std::endl;
     }
     else
     {
@@ -51,7 +51,7 @@ void PseudoInput(std::string p)
     } 
 }
 
-void printResult(char c)
+void charInput(char c)
 {
     std::cout << "Char: '" << c << "'" << std::endl;
 	std::cout << "Int: " << static_cast<int>(c) << std::endl;
@@ -59,44 +59,153 @@ void printResult(char c)
 	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
-void printResult(int i)
+void intInput(std::string s)
 {
-    if (isprint(i))
-        std::cout << "Char: '" << static_cast<char>(i)  << "'" << std::endl;
-    else{
-        std::cout << "Char: " << "Non displayable"  << std::endl;}
-	std::cout << "Int: " << i << std::endl;
-	std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
-	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+    std::stringstream out(s);
+    int i;
+    out >> i;
+    if (!out.fail())
+    {
+        if (isprint(static_cast<char>(i)))
+            std::cout << "Char: '" << static_cast<char>(i)  << "'" << std::endl;
+        else{
+            std::cout << "Char: Non displayable"  << std::endl;}
+        std::cout << "Int: " << i << std::endl;
+        std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+        std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+    }
+    else
+    {
+        std::cout << "Char: impossible" << std::endl;
+        std::cout << "Int: impossible" << std::endl;
+        out.str("");
+        out.clear();
+        out << s;
+        double x;
+        out >> x;
+        if(!out.fail())
+        {
+            if (x > std::numeric_limits<float>::max())
+                std::cout << "Float: +inff" << std::endl;
+            else if (x < std::numeric_limits<float>::min())
+                std::cout << "Float: -inff" << std::endl;
+            else
+                std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(x) << "f" << std::endl;
+            std::cout << "Double: " << std::fixed << std::setprecision(1) << x << std::endl;
+        }
+        else
+        {
+            if(*(s.begin()) == '-')
+            {
+                std::cout << "Float: -inff" << std::endl;
+                std::cout << "Double: -inf" << std::endl;
+            }  
+            else
+            {
+                std::cout << "Float: +inff" << std::endl;
+                std::cout << "Double: +inf" << std::endl;
+            }  
+        }
+    }
 }
 
-void printResult(float f)
+void floatInput(std::string s)
 {
-    if (isprint(static_cast<char>(f)))
-        std::cout << "Char: '" << static_cast<char>(f)  << "'" << std::endl;
-    else{
-        std::cout << "Char: " << "Non displayable"  << std::endl;}
-	std::cout << "Int: " << static_cast<int>(f) << std::endl;
-	std::cout << "Float: " << std::fixed << std::setprecision(1)<< f << "f" << std::endl;
-	std::cout << "Double: " << std::fixed << std::setprecision(1)<< static_cast<double>(f) << std::endl;
+    std::stringstream out(s);
+    float f;
+    out >> f;
+    if (!out.fail())
+    {
+        std::cout << isprint(static_cast<char>(f)) << std::endl;
+        if (isprint(static_cast<char>(f)))
+            std::cout << "Char: '" << static_cast<char>(f)  << "'" << std::endl;
+        else{
+            std::cout << "Char: Non displayable"  << std::endl;}
+        if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
+            std::cout << "Int: impossible" << std::endl;
+        else
+            std::cout << "Int: " << static_cast<int>(f) << std::endl;
+        std::cout << "Float: " << std::fixed << std::setprecision(1)<< f << "f" << std::endl;
+	    std::cout << "Double: " << std::fixed << std::setprecision(1)<< static_cast<double>(f) << std::endl;
+    }
+    else
+    {
+        std::cout << "Char: impossible" << std::endl;
+        std::cout << "Int: impossible" << std::endl;
+        if(*(s.begin()) == '-')
+            std::cout << "Float: -inff" << std::endl; 
+        else
+            std::cout << "Float: +inff" << std::endl;
+        out.str("");
+        out.clear();
+        out << s;
+        double x;
+        out >> x;
+        if (!out.fail())
+            std::cout << "Double: " << std::fixed << std::setprecision(1) << x << std::endl;
+        else
+        {
+            if(*(s.begin()) == '-')
+                std::cout << "Double: -inf" << std::endl; 
+            else
+                std::cout << "Double: +inf" << std::endl;
+        }
+    }
 }
 
-void printResult(double d)
+void doubleInput(std::string s)
 {
-    if (isprint(static_cast<char>(d)))
-        std::cout << "Char: '" << static_cast<char>(d)  << "'" << std::endl;
-    else{
-        std::cout << "Char: " << "Non displayable"  << std::endl;}
-	std::cout << "Int: " << static_cast<int>(d) << std::endl;
-	std::cout << "Float: " << std::fixed << std::setprecision(1)<< static_cast<float>(d)  << "f" << std::endl;
-	std::cout << "Double: " << std::fixed << std::setprecision(1)<< d << std::endl;
+    std::stringstream out(s);
+    double d;
+    out >> d;
+    if (!out.fail())
+    {
+         if (isprint(static_cast<char>(d)))
+            std::cout << "Char: '" << static_cast<char>(d)  << "'" << std::endl;
+        else{
+            std::cout << "Char: " << "Non displayable"  << std::endl;}
+        if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
+            std::cout << "Int: impossible" << std::endl;
+        else
+            std::cout << "Int: " << static_cast<int>(d) << std::endl;
+        if ((d > std::numeric_limits<float>::max()) || (-d > std::numeric_limits<float>::max()))
+        {
+            if(*(s.begin()) == '-')
+                std::cout << "Float: -inff" << std::endl; 
+            else
+                std::cout << "Float: +inff" << std::endl;
+        }
+        else
+            std::cout << "Float: " << std::fixed << std::setprecision(1)<< static_cast<float>(d)  << "f" << std::endl;
+        std::cout << "Double: " << std::fixed << std::setprecision(1)<< d << std::endl;
+    } 
+    else
+    {
+        std::cout << "Char: impossible" << std::endl;
+        std::cout << "Int: impossible" << std::endl;
+        if(*(s.begin()) == '-')
+        {
+            std::cout << "Float: -inff" << std::endl;
+            std::cout << "Double: -inf" << std::endl;
+        }  
+        else
+        {
+            std::cout << "Float: +inff" << std::endl;
+            std::cout << "Double: +inf" << std::endl;
+        }  
+    }
 }
 
 void ScalarConverter::convert(std::string literal)
 {
+    bool digit = true;
+    int dot = 0;
+    int f = 0;
+    unsigned int i = 0;
+    
     if (literal.length() == 1 && !isdigit(*literal.begin())) 
     {
-        printResult(*literal.begin());
+        charInput(*literal.begin());
         return;
     }
     if ( literal == "nan" || literal == "nanf" || literal == "+inf" || literal == "+inff" || literal == "-inf" || literal == "-inff") 
@@ -104,10 +213,7 @@ void ScalarConverter::convert(std::string literal)
         PseudoInput(literal);
         return;
     }
-    bool digit = true;
-    int dot = 0;
-    int f = 0;
-    unsigned int i = 0;
+   
     if (*literal.begin() == '+' || *literal.begin() == '-')
         i++;
     for (unsigned j = i; j < literal.size(); j++)
@@ -122,19 +228,21 @@ void ScalarConverter::convert(std::string literal)
         else if (literal[j] == 'f')
             f++;  
     }
-    if (digit && !dot && !f)
+    
+    if (!literal.empty() && digit && !dot && !f)
     {
-        printResult(atoi(literal.c_str()));
-        return;
+            intInput(literal);
+            return;
     }
+    
     if (digit && dot == 1 && f == 1 && *(literal.end() - 1) == 'f' )
     {
-        printResult(static_cast<float>(std::atof(literal.c_str())));
+        floatInput(literal);
         return;
     }
     if (digit && dot == 1 && !f)
     {
-        printResult(std::atof(literal.c_str()));
+        doubleInput(literal);
         return;
     }
     ImpossibleInput();

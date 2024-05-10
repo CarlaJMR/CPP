@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/19 17:54:18 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:03:42 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <climits>
+#include <limits>
 #include <iomanip>
+#include <sstream>
 
 class ScalarConverter
 {
