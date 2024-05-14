@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:31:35 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/10 19:18:09 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:50:11 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void PseudoInput(std::string p)
     } 
 }
 
-void charInput(char c)
+void ScalarConverter::charInput(char c)
 {
     std::cout << "Char: '" << c << "'" << std::endl;
 	std::cout << "Int: " << static_cast<int>(c) << std::endl;
@@ -59,7 +59,7 @@ void charInput(char c)
 	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
-void intInput(std::string s)
+void ScalarConverter::intInput(std::string s)
 {
     std::stringstream out(s);
     int i;
@@ -87,7 +87,7 @@ void intInput(std::string s)
         {
             if (x > std::numeric_limits<float>::max())
                 std::cout << "Float: +inff" << std::endl;
-            else if (x < std::numeric_limits<float>::min())
+            else if (-x > std::numeric_limits<float>::max())
                 std::cout << "Float: -inff" << std::endl;
             else
                 std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(x) << "f" << std::endl;
@@ -109,7 +109,7 @@ void intInput(std::string s)
     }
 }
 
-void floatInput(std::string s)
+void ScalarConverter::floatInput(std::string s)
 {
     std::stringstream out(s);
     float f;
@@ -153,7 +153,7 @@ void floatInput(std::string s)
     }
 }
 
-void doubleInput(std::string s)
+void ScalarConverter::doubleInput(std::string s)
 {
     std::stringstream out(s);
     double d;
