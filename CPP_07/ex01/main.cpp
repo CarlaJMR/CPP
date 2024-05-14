@@ -6,18 +6,32 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/26 18:28:44 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:07:45 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include "Iter.hpp"
+#include <cmath>
 
+template <typename U>
+void printfuntion(U x)
+{
+	std::cout << x << std::endl;
+}
 
 int main(void)
 {
 	int intArray[] = {1, 2, 3, 4};
+	iter(intArray, 4, printfuntion<int>);
+	std::cout << std::endl;
+	
 	char charArray[] = {'a', 'b', 'c', 'd', 'e', 'f'};
-	float floatArray[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+	iter(charArray, 5, printfuntion<char>);
+	std::cout << std::endl;
+	
+	double doubleArray[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+	iter(doubleArray, 5, printfuntion<double>);
+	std::cout << std::endl;
 	
 	return 0;
 }
