@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:08:55 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/14 15:06:34 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/17 14:19:32 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Array{
         Array<T>(Array const & other);
         Array & operator=(Array const & other);
         ~Array<T>();
-        T &operator[](const size_t i);
+        T & operator[](const size_t i) const;
         size_t size() const;
 };
 

@@ -6,12 +6,11 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/14 14:07:45 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/17 13:26:46 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Iter.hpp"
-#include <cmath>
 
 template <typename U>
 void printfuntion(U x)

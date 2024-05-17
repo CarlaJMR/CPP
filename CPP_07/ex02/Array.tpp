@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:08:55 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/14 15:09:20 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/17 14:19:08 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,16 @@ Array<T> & Array<T>::operator=(Array const & other)
 	for (size_t i = 0; i < _len; i++)
 		arr[i] = other.arr[i];
 	return (*this);
-    return;
 }
 
 template <typename T>
-T&	Array<T>::operator[](const size_t i)
+T & Array<T>::operator[](const size_t i) const
 {
 	if (i >= _len)
 		throw std::out_of_range("Index is out of range");
 	return (arr[i]);
 }
+
 
 template <typename T>
 size_t Array<T>::size(void) const
