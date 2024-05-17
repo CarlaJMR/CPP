@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:55:25 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/16 18:07:58 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:46:52 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ int main()
     sp.addNumber(17);
     sp.addNumber(9);
     sp.addNumber(11);
+    sp.print();
     std::cout << sp.shortestSpan() << std::endl;
+    sp.print();
     std::cout << sp.longestSpan() << std::endl;
+    sp.print();
     
     return 0;
 }

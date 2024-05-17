@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:42:06 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/16 18:13:03 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:47:33 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ class Span
     void addNumber(int numb);
     int shortestSpan();
     int longestSpan();
+    class	FullContainerException : public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+    class	NoExistentSpanException : public std::exception
+		{
+			public:
+				const char	*what() const throw();
+		};
+    void print();
   
   private:
     std::vector<int> _v;
