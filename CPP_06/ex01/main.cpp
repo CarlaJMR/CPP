@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/04/19 16:16:26 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:15:21 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main()
 		
 		Data *ptr = Serializer::deserialize(raw);
 		std::cout << "\nData * after deserializer: " << ptr << std::endl;
-		std::cout << "Values after deserializer: " << original.i << "\t" << original.c << std::endl;
+		std::cout << "Values after deserializer: " << ptr->i << "\t" << ptr->c << std::endl;
 	}
 	std::cout << "\n------------------------------------------\n" << std::endl;
 	{
@@ -46,7 +46,7 @@ int main()
 		
 		Data *ptr = Serializer::deserialize(raw);
 		std::cout << "\nData * after deserializer: " << ptr << std::endl;
-		std::cout << "Values after deserializer: " << original->i << "\t" << original->c << std::endl;
+		std::cout << "Values after deserializer: " << ptr->i << "\t" << ptr->c << std::endl;
 		delete original;
 	}
 	
