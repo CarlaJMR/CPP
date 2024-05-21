@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:42:06 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/17 17:47:33 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:00:34 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Span
     Span & operator=(const Span & other);
     
     void addNumber(int numb);
+    void addNumber(int numb, size_t range);
     int shortestSpan();
     int longestSpan();
     class	FullContainerException : public std::exception

@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 16:42:06 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/21 11:56:12 by cjoao-me         ###   ########.fr       */
+/*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
+/*   Updated: 2024/05/21 13:55:55 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#include "RPN.hpp"
 
-#include <iostream>
-#include <algorithm>
-#include <exception>
-#include <stack>
-
-template <typename T>
-class MutantStack : public std::stack<T>
+int	main(int argc, char **argv)
 {
-  public:
-    MutantStack();
-    MutantStack(const MutantStack & other);
-    MutantStack & operator=(const MutantStack & other);
-    ~MutantStack();
-  
-  private:  
-};
-
-#include "MutantStack.tpp"
-
-#endif
+	if (argc != 2) 
+	{
+		std::cerr << "Error: wrong number of arguments" << std::endl;
+	} 
+	else 
+	{
+		RPN::calculate(argv[1]);
+	}
+	return 0;
+}

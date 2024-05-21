@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 16:42:06 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/21 11:56:12 by cjoao-me         ###   ########.fr       */
+/*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
+/*   Updated: 2024/05/21 14:52:13 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#ifndef RPN_HPP
+#define RPN_HPP
 
 #include <iostream>
-#include <algorithm>
-#include <exception>
+#include <string>
+#include <cstdlib>
+#include <limits>
+#include <iomanip>
+#include <sstream>
 #include <stack>
+#include <algorithm>
 
-template <typename T>
-class MutantStack : public std::stack<T>
+class RPN
 {
-  public:
-    MutantStack();
-    MutantStack(const MutantStack & other);
-    MutantStack & operator=(const MutantStack & other);
-    ~MutantStack();
-  
-  private:  
-};
+    public:
+        static void calculate(std::string literal);
+        ~RPN();
 
-#include "MutantStack.tpp"
+    private:
+        RPN();
+        RPN(const RPN &other);
+        RPN & operator=(RPN const & other);
+        
+        std::stack<float> _numbers;
+};
 
 #endif

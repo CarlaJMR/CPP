@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:42:06 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/21 11:56:12 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:58:05 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#include "MutantStack.hpp"
 
-#include <iostream>
-#include <algorithm>
-#include <exception>
-#include <stack>
 
-template <typename T>
+MutantStack::MutantStack(){}
+MutantStack::~MutantStack(){}
+
 class MutantStack : public std::stack<T>
 {
   public:
@@ -30,6 +27,3 @@ class MutantStack : public std::stack<T>
   private:  
 };
 
-#include "MutantStack.tpp"
-
-#endif

@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:42:06 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/17 18:45:42 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:29:53 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ void Span::addNumber(int numb)
   _v.push_back(numb);
 }
 
+void Span::addNumber(int numb, size_t range)
+{
+  if (_v.size() + range > N)
+    throw Span::FullContainerException();
+  _v.insert (_v.end(), range, numb);
+}
 
 int Span::shortestSpan()
 {
@@ -49,12 +55,8 @@ int Span::shortestSpan()
     throw Span::NoExistentSpanException();
   
   std::sort (_v.begin(), _v.end());
-  print();
   for (std::vector<int>::iterator it=_v.begin(); it != _v.end() -1 ; it++)
     dif.push_back(*(it + 1) - *it);
-  for (std::vector<int>::iterator itd=dif.begin(); itd!=dif.end(); ++itd)
-    std::cout << ' ' << *itd ;
-  std::cout << std::endl;
   return (*std::min_element(dif.begin(), dif.end()));
 }
 
@@ -67,12 +69,12 @@ int Span::longestSpan()
 
 const char	*Span::FullContainerException::what() const throw()
 {
-	return ("Full container!");
+	return ("No space left in the container do add the amount of numbers requested!");
 }
 
 const char	*Span::NoExistentSpanException::what() const throw()
 {
-	return ("No enough numbers to calculate the span.");
+	return ("Not enough numbers to calculate the span.");
 }
 
 void Span::print()
