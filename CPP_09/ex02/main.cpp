@@ -6,23 +6,23 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:44:09 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/31 13:20:30 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/31 18:32:02 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 int	main(int argc, char **argv)
 {
-	if (argc != 2) 
+	if (argc < 2) 
 	{
 		std::cerr << "Error: wrong number of arguments." << std::endl;
 		return 1;
 	} 
 	try
 	{
-		RPN rpn;
-		rpn.calculate(argv[1]);
+		PmergeMe fjmi;
+		fjmi.merge_insertion(*argv);
 	}
 	catch(const std::exception& e)
     {

@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/21 14:52:24 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:22:07 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ RPN::RPN() {}
 
 RPN::RPN(const RPN &other)
 {
-    (void)other;
+    *this = other;
 }
 
 RPN & RPN::operator=(RPN const & other)
 {
-    (void)other;
+    _numbers = other._numbers;
     return(*this);
 }
 
 RPN::~RPN() {}
 
-bool lessThenTen(std::string s)
+bool lessThanTen(std::string s)
 {
-    for (int i = 0; i < s.size(); i++)
+    for (size_t i = 0; i < s.size(); i++)
     {
         if (isdigit(s[i]) && isdigit(s[i + 1]))
             return (false);
@@ -37,9 +37,9 @@ bool lessThenTen(std::string s)
     return (true);
 }
 
-bool isOperation(char c)
+bool isOperation(std::string s)
 {
-    if (c == '-' || c == '+' || c == '*' || c == '/'){
+    if (s == "-" || s == "+" || s == "*" || s == "/"){
         return(true);
     }
     return (false);
@@ -47,20 +47,57 @@ bool isOperation(char c)
 
 void RPN::calculate(std::string expression)
 {
+    std::string token;
+    std::istringstream iss(expression);
+    
     if (expression.empty() || expression.find_first_not_of("0123456789+-/* ") != std::string::npos \
-            || expression.find_first_of("+-*/") == std::string::npos || !lessThenTen(expression)) 
+            || expression.find_first_of("+-*/") == std::string::npos || !lessThanTen(expression)) 
     {
-		std::cerr << "Error" << std::endl;
-        return;
+		throw RPN::InvalidExpression();
 	}
     
-    
-	for (int i = 0; i < expression.size(); i++)
+    while (iss >> token) 
     {
-        if (isdigit(expression[i]))
-            _numbers.push(1);
-    }
+        if (isdigit(*token.begin()))
+                _numbers.push(atoi(token.c_str()));
+        else if (isOperation(token))
+        {
+            if (_numbers.size() < 2)
+                throw RPN::InvalidExpression();
+           
+			float b = _numbers.top();
+			_numbers.pop();
+
+			float a = _numbers.top();
+			_numbers.pop();
+            
+            switch (*token.begin())
+            {
+                case '+':
+                    _numbers.push(a + b);
+                    break;
+                case '*':
+                    _numbers.push(a * b);
+                    break;
+                case '-':
+                    _numbers.push(a - b);
+                    break;
+                case '/':
+                    _numbers.push(a / b);
+                    break;
+            }
+        }
+        else
+            throw RPN::InvalidExpression();
+    }        
+            
+    if (_numbers.size() > 1){
+        throw RPN::InvalidExpression();}
+
+	std::cout << _numbers.top() << std::endl;
 }
 
-
-
+const char	*RPN::InvalidExpression::what() const throw()
+{
+	return ("invalid input.");
+}
