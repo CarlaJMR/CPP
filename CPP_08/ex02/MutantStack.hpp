@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:42:06 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/21 11:56:12 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:42:52 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ class MutantStack : public std::stack<T>
     MutantStack(const MutantStack & other);
     MutantStack & operator=(const MutantStack & other);
     ~MutantStack();
+    typedef	typename std::stack<T>::container_type::iterator iterator;
+		iterator	begin();
+		iterator	end();
   
-  private:  
 };
 
 #include "MutantStack.tpp"
