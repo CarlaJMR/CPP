@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/31 13:22:07 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:43:04 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ void RPN::calculate(std::string expression)
 			float a = _numbers.top();
 			_numbers.pop();
             
+            if (*token.begin() == '/' && b == 0)
+                throw RPN::InvalidExpression();
+                
             switch (*token.begin())
             {
                 case '+':
@@ -99,5 +102,5 @@ void RPN::calculate(std::string expression)
 
 const char	*RPN::InvalidExpression::what() const throw()
 {
-	return ("invalid input.");
+	return ("Invalid expression.");
 }

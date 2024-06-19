@@ -6,7 +6,7 @@
 /*   By: cjoao-me <cjoao-me@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:46 by cjoao-me          #+#    #+#             */
-/*   Updated: 2024/05/31 18:37:21 by cjoao-me         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:17:00 by cjoao-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include <ctime>
 #include <vector>
 #include <list>
-#include <array>
 #include <algorithm>
 
 class PmergeMe
@@ -30,7 +29,7 @@ class PmergeMe
         PmergeMe & operator=(PmergeMe const & other);
         ~PmergeMe();
 
-        void merge_insertion(std::string *input);
+        void merge_insertion(char **input);
         
         class	InvalidArgsException : public std::exception
 		{
@@ -39,18 +38,32 @@ class PmergeMe
 		};
     
     private:
-        void vector_merge_insertion(std::vector<int> *v);
-        void list_merge_insertion(std::list<int> *l);
-        bool validate_args(std::string *input);
-        void print_result(std::vector<int> args, std::vector<int> v, clock_t vector_procTime, clock_t list_procTime);
+        std::vector<int> _vector;
+		std::list<int>	 _list;
+        void vector_merge_insertion();
+        void vectorRecursiveSort(int size);
+        void list_merge_insertion();
+        void listRecursiveSort(int size);
+        bool validate_args(char **input);
 };
 
 template <typename T>
 void print_container(T & contain)
 {
+    int counter = 0;
     for (typename T::iterator it = contain.begin(); it != contain.end(); ++it)
+    {
+        if (counter == 100)
+        {
+            std::cout << "[...]";
+            break;
+        }
         std::cout << *it << " ";
-    std::cout << '\n';
+        counter++;
+    }
+    std::cout << std::endl;
 }
+
+std::vector<long int> jacobsthalIndexSequence(int n);
 
 #endif
